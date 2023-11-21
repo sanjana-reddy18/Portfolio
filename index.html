@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Your Name - Portfolio</title>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <header id="body-header">
+    <section class="nav-bar">
+       
+        <ul class="menu">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#objective">Career Objective</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#contactus">Contact</a></li>
+            <button id="mode-toggle">Toggle Mode</button>
+        </ul>
+</section>
+<br>
+<br>
+<br>
+<br>
+<section id="home">
+    <h1>SANJANA REDDY MANCHIKANTI</h1>
+   <br>
+
+<img id="img1" src="image.png" alt="image">
+</section>
+    </header>
+        <br>
+        <br>  
+
+    <!-- Home Page -->
+    <section id="about">
+        <h2>Career Objective</h2>
+        <h3>To work in a learning and challenging environment, utilizing my skills and knowledge to the best of my 
+            abilities and contribute positively to the growth of the organization as well as my personal growth.</h3>
+    </section>
+
+    <!-- Education History -->
+    <section id="education">
+        <h2>Education</h2>
+        <table border="2">
+            <thead>
+                <tr>
+                    <th>Qualification</th>
+                    <th>Year of Passing</th>
+                    <th>Percentage</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Master's in Computer Science (pursuing)</td>
+                    <td>2025</td>
+                    <td>--</td>
+                </tr>
+                <tr>
+                    <td>Bachelor of Technology in IT</td>
+                    <td>2023</td>
+                    <td>9.34</td>
+                </tr>
+                <tr>
+                    <td>Intermediate in MPC</td>
+                    <td>2019</td>
+                    <td>93.1</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </section>
+    <section id="skills">
+        <h2>Skills</h2>
+        <section>
+        <div class="portfolio-container">
+            <div class="portfolio-image-container">
+                <img id="id1" src="program.avif">
+                <div class="portfolio-details">
+                    <h2>Programming Language:</h2>
+                    <li>C</li>
+            <li>Java</li>
+            <li>Python</li>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="portfolio-container">
+                <div class="portfolio-image-container">
+                    <img id="id2" src="fet.png">
+                    <div class="portfolio-details">
+                        <h2>Frontend technologies:</h2>
+                        <li>HTML</li>
+                <li>CSS</li>
+                    </div>
+                </div>
+            </section>
+                <div class="portfolio-container">
+                    <div class="portfolio-image-container">
+                        <img id="id3" src="db.png">
+                        <div class="portfolio-details">
+                            <h2>Database:</h2>
+                            <li>MYSQL</li>
+                        </div>
+                    </div>
+        
+    </section>
+    <!-- Work/Volunteer Experience -->
+    <section id="experience">
+        <h2>Experience</h2>
+    
+        <div class="portfolio-container">
+            <div class="portfolio-image-container">
+                <img src="company.png">
+                <div class="portfolio-details">
+                    <h2>Work Experience</h2>
+                    <p><strong>Role: Worked as Associate Developer</strong> <span id="role"></span></p>
+        <p><strong>Time Worked: 3 months</strong> <span id="time-worked"></span></p>
+        <p><strong>Description: I have worked as a Associate Developer in Accenture company. I got trained in MERN stream i.e. react nodejs. I have developed an app during this training and also worked as an assistant for the developer for a project. During this 3 months of work I learnt about the React Nodejs.
+        </strong> <span id="description"></span></p>
+                </div>
+            </div>
+
+            <div class="portfolio-container">
+                <div class="portfolio-image-container">
+                    <img src="volunteer1.png">
+                    <div class="portfolio-details">
+                        <h2>Volunteer Experience</h2>
+                <p><strong>I have participated in Go-Green awareness programme under NSS unit.</strong></p>
+                <p><strong>I have worked as the Volunteer of street Cause Hyderabad South division 2021-2022.</strong></p>
+            </strong> <span id="description"></span></p>
+                    </div>
+                </div>
+                 
+    
+            </section>
+
+    <!-- Contact-Me Page -->
+    <section id="contact">
+        <h1 class="section-heading mb50px">
+            <span>
+                <i class="fa fa-address-card" aria-hidden="true"></i>
+            </span>
+            <h2>CONTACT</h2>
+            
+        </h1>
+<div id="contact-conatiner">
+<div id="contact-form-container">
+    <section>
+        <form id="contact-form" name="submit-to-google-sheet">
+       
+        <input type="text" id="input-name" name="name" placeholder="Your Name">
+        <input type="text" id="input-email" name="email" placeholder="Your Email">
+        <textarea id="input-text" name="message" rows="2" cols="40" placeholder="Message"></textarea>
+        <button class="submit-button" type="submit">SEND MESSAGE</button> 
+        <span id="success"></span>
+        </form> 
+        <script>
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbx-0Gg0Ji-WIkjB5Kn6BkMSceDYqnhhu5KH0XKIPVNmkauML7OoWVPCLbwNmJRNxw8/exec'
+            const form = document.forms['submit-to-google-sheet']
+            const success = document.getElementById('success');
+            form.addEventListener('submit', e => {
+              e.preventDefault()
+              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => {
+                    success.innerHTML="data successfully submit";
+                    setTimeout(function()
+                    {
+                        success.innerHTML="";
+                    },5000)
+                    form.reset();
+             })
+                .catch(error => console.error('Error!', error.message))
+            })
+          </script>
+          </section>
+</div>
+<div id="my-details-container">
+   
+    <h3>My Address</h3>
+    <div class="my-details-info-container">
+        <i class="fas fa-map-marker-alt"></i>
+        <span>Saint Louis, MO</span>
+    </div>
+    <div class="my-details-info-container">
+         <i class="fas fa-mobile-alt"></i>
+        <span>3145647253</span>
+    </div>
+    <div class="my-details-info-container">
+        <i class="far fa-envelope"></i> 
+        <span>msanjana1809@gmail.com</span>
+    </div>
+</div>
+
+    </section>
+        
+ <!-- Back to Portfolio Link -->
+ <section id="back-to-portfolio">
+    <a href="#home">&larr; Back to Portfolio</a>
+</section>
+
+    <!-- Light/Dark Mode Toggle -->
+    <script src="script.js"></script>
+</body>
+
+</html>
